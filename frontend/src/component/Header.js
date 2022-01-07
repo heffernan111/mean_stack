@@ -43,7 +43,7 @@ const Header = ({ history }) => {
                                     </Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link to="/signin">
+                                    <Link to="/login">
                                         <NavLink style={{ cursor: "pointer" }}>Login</NavLink>
                                     </Link>
                                 </NavItem>
@@ -68,7 +68,7 @@ const Header = ({ history }) => {
 
                         {isAuth() && (
                             <NavItem>
-                                <NavLink style={{ cursor: "pointer" }} onClick={() => signout(() => history.push("/signin"))} >
+                                <NavLink style={{ cursor: "pointer" }} onClick={() => signout(() => history.push("/login"))} >
                                     SignOut
                                 </NavLink>
                             </NavItem>

@@ -5,7 +5,7 @@ import { isAuth } from "../../action/authAcation";
 const Protected = ({ history }) => {
     useEffect(() => {
         if (!isAuth()) {
-            history.push("/signin");
+            history.push("/login");
         } else if (isAuth().role !== 1) {
             history.push("/");
         }

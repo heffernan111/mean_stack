@@ -1,6 +1,6 @@
 import React from "react";
 
-const SignIn = () => {
+const Home = () => {
     return (
         <React.Fragment>
             <div className="row">
@@ -12,4 +12,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Home;
