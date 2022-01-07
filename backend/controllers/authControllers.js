@@ -3,8 +3,8 @@ const shortId = require("shortid");
 const jwt = require("jsonwebtoken");
 const expressJwt = require("express-jwt");
 
-// user signup
-exports.signup = (req, res) => {
+// user register
+exports.register = (req, res) => {
   User.findOne({ email: req.body.email }).exec((err, user) => {
     if (user) {
       return res.status(400).json({
@@ -25,28 +25,28 @@ exports.signup = (req, res) => {
       //   user: success,
       // });
       res.json({
-        message: "signup success! please login.",
+        message: "registration success!",
       });
     });
   });
 };
 
-// user signin
-exports.signin = (req, res) => {
+// user login
+exports.login = (req, res) => {
   const { email, password } = req.body;
 
   //check if user exist
   User.findOne({ email }).exec((err, user) => {
     if (err || !user) {
       return res.status(400).json({
-        error: "User with that email does not exist. Please signup",
+        error: "Email not found.",
       });
     }
 
     // authenticate
     if (!user.authenticate(password)) {
       return res.status(400).json({
-        error: "Email and password do not match.",
+        error: "Credentials incorrect.",
       });
     }
 
@@ -99,7 +99,7 @@ exports.adminMiddleware = (req, res, next) => {
     }
     if (user.role !== 1) {
       return res.status(400).json({
-        error: "Admin resource Access denied",
+        error: "Access denied",
       });
     }
     next();
