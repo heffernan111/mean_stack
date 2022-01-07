@@ -21,22 +21,30 @@ const Header = ({ history }) => {
             <Navbar color="light" light expand="md">
                 <Link to="/">
                     <NavbarBrand style={{ cursor: "pointer" }} className="font-weight-bold">
-                        LOGO HERE
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.23174 23 20.46348">
+                            <title>React Logo</title>
+                            <circle cx="0" cy="0" r="2.05" fill="#61dafb"/>
+                            <g stroke="#61dafb" stroke-width="1" fill="none">
+                                <ellipse rx="11" ry="4.2"/>
+                                <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+                                <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+                            </g>
+                        </svg>
                     </NavbarBrand>
                 </Link>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
-                    <Nav className="ml-auto" navbar>
+                    <Nav className="ml-auto position-absolute top-0 end-0" navbar>
                         {!isAuth() && (
                             <React.Fragment>
                                 <NavItem>
-                                    <Link to="/signup">
-                                        <NavLink style={{ cursor: "pointer" }}>Signup</NavLink>
+                                    <Link to="/register">
+                                        <NavLink style={{ cursor: "pointer" }}>Register</NavLink>
                                     </Link>
                                 </NavItem>
                                 <NavItem>
                                     <Link to="/signin">
-                                        <NavLink style={{ cursor: "pointer" }}>Signin</NavLink>
+                                        <NavLink style={{ cursor: "pointer" }}>Login</NavLink>
                                     </Link>
                                 </NavItem>
                             </React.Fragment>
